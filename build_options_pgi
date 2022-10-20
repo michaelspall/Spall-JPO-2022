@@ -1,0 +1,21 @@
+#!/bin/bash
+#FC=/share/apps/mvapich2-1.2p1/bin/mpif77
+#CC=/share/apps/mvapich2-1.2p1/bin/mpicc
+FC=mpif77
+CC=mpicc
+LINK=$FC
+DEFINES='-DWORDLENGTH=4 -DALLOW_USE_MPI -DALWAYS_USE_MPI'
+CPP='cpp  -traditional -P'
+NOOPTFLAGS='-O0'
+MAKEDEPEND=/usr/bin/makedepend
+#INCLUDES='-I/share/apps/pgi/linux86-64/8.0/include/ -I/share/apps/openmpi/include -I/usr/local/include/'
+#LIBS='-L/usr/local/lib -L/share/apps/openmpi/lib -L/share/apps/pgi/linux86-64/8.0/lib/ -lmpich -lnetcdf'
+#INCLUDES='-I/share/apps/netcdf-4.1.3_pgi-11.5-0/include -I/share/apps/openmpi/include'
+#LIBS='-L/share/apps/netcdf-4.1.3_pgi-11.5-0/lib -lnetcdf'
+INCLUDES='-I/vortexfs1/home/mspall/pe/mit/newsetup/openmpi_include/ -I/vortexfs1/apps/pgi/linux86-64/2018/mpi/openmpi-2.1.2/include'
+
+
+    #  Try to follow IEEE-754
+    FFLAGS='-byteswapio -r8 -Mnodclchk -Mextend -Ktrap=fp'
+    FOPTIM='-tp k8-64 -pc=64 -fastsse -O3 -Msmart -Kieee -Mvect=cachesize:1048576,transform'
+
