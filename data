@@ -1,0 +1,93 @@
+# Model parameters
+# Continuous equation parameters
+ &PARM01
+ tRef= 
+    9.9750,   9.9005,   9.7531,   9.5600,   9.3707,   9.1622,   8.9360,   8.7153,   8.5002,
+    8.2903,   8.0856,   7.8860,   7.6913,   7.5014,   7.3162,   7.1355,   6.9593,   6.7875,
+    6.6199,   6.4565,   6.2971,   6.1416,   5.9900,   5.8421,   5.6978,   5.5571,   5.4199,
+    5.2861,   5.1556,   5.0283,   4.8191,   4.5384,   4.2741,   4.0252,   3.7908,   3.5701,
+    3.3622,   3.1664,   2.9820,   2.8083,   2.6448,   2.4908,   2.3457,   2.2091,   2.0805,
+    1.9593,   1.8452,   1.7377,   1.6365,   1.5412,   1.4227,   1.2873,   1.1648,   1.0540,
+    0.9537,   0.8629,   0.7808,   0.7065,   0.6393,   0.5502,
+ sRef=28*0.0,32*1,
+ viscAz=1.e-4,
+# viscAh=20.,
+# viscA4=8.e+9,
+ viscC2Smag=3.0,
+# viscC4Leith=1.5,
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.TRUE.,
+# diffK4T=1.e+9,
+# diffKhT=30.,
+ diffKzT=1.E-6,
+# diffK4S=1.e+9,
+# diffKhS=30.,
+ diffKzS=1.E-6,
+ f0=1.0e-4,
+ beta=0.0E-11,
+ tAlpha=0.2E-3,
+ sBeta =0.0E-3,
+ rigidLid=.FALSE.,
+ implicitFreeSurface=.TRUE.,
+ staggerTimeStep=.TRUE.,
+ eosType='LINEAR',
+# momAdvection=.FALSE.,
+ readBinaryPrec=64,
+ hFacMin=0.1,
+# bottomDragQuadratic=2.e-3,
+ bottomDragLinear=0.5e-3,
+ implicitDiffusion=.TRUE.,
+ implicitViscosity=.TRUE.,
+ tempAdvScheme=33,
+ saltAdvScheme=33,
+ useSingleCpuIO=.TRUE.,
+# vectorInvariantMomentum=.TRUE.,
+ ivdc_kappa=1000.0,
+ &
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-11,
+ &
+# Time stepping parameters
+ &PARM03
+ tauCD=0.,
+ startTime=0.0,
+ endTime=6.2208e+7,
+ deltaT=480.,
+ abEps=0.1,
+ pChkptFreq=0.0,
+ chkptFreq=3.1104e+7,
+ dumpFreq=864000., 
+ monitorFreq=3.1104e+7,
+ cAdjFreq=0,
+ forcing_In_AB=.FALSE.,
+# tauThetaClimRelax=5184000.,
+ &
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ usingSphericalPolarGrid=.FALSE.,
+# ygOrigin=0.0,
+# xgOrigin=106.0,
+# delY=4*36.e+3,6*24.e+3,180*12.e+3,6*24.e+3,4*36.e+3,
+# delX=4*36.e+3,6*24.e+3,180*12.e+3,6*24.e+3,4*36.e+3,
+ dXspacing=5.e+3
+ dYspacing=5.e+3
+ delZ=5,10,3*20,25*25,20*60,9*100,200,
+ &
+ &PARM05
+ bathyFile='topog.bin',
+# ThetaClimFile='SST.bin',
+ zonalWindFile='taux.bin',
+ meridWindFile='tauy.bin',
+ hydrogSaltFile='Sinit.bin'
+# vVelInitFile='Vinit.bin',
+# uVelInitFile='Uinit.bin',
+# PsurfInitFile='Pinit.bin',
+ checkIniSalt=.false.
+ &
+ &PARM06
+ XRW=950.e+3, XRE=1050.e+3, YRS=1050.e+3, YRN=0.e+3, trestore=432000,
+ tauperiod=3.1104e+7, theta1=0.0, theta2=0.0, ksill=29, ptrestore=7776000.,
+ &

@@ -1,0 +1,39 @@
+#
+E=fbc01a
+DATA=/vortexfs1/home/mspall/pe/mit/fbc
+SRC=${DATA}/binary
+TOP=${DATA}/topogfiles
+#RST=/scratch/mspall/restarts/bisl01a
+rm data.*
+rm mitgcm
+rm eedata
+rm *.bin
+rm *.forcing
+rm *.init
+rm *.data
+rm *.meta
+
+cp ${DATA}/${E}/data data
+#cp ${DATA}/${E}/data.kpp data.kpp
+cp ${DATA}/${E}/data.pkg data.pkg
+cp ${DATA}/${E}/data.diagnostics data.diagnostics
+cp ${DATA}/${E}/eedata eedata
+cp ${DATA}/${E}/topog.bin topog.bin
+cp ${DATA}/${E}/SST.bin SST.bin
+cp ${DATA}/${E}/taux.bin taux.bin
+cp ${DATA}/${E}/tauy.bin tauy.bin
+cp ${DATA}/${E}/Sinit.bin Sinit.bin
+
+
+
+#cp ${RST}/pickup.ckptA.data pickup.0000933120.data
+#cp ${RST}/pickup.ckptA.meta pickup.0000933120.meta
+
+
+cp ${SRC}/RND_PTRR_420x420x60np144 mitsrc
+
+#
+
+cp ${DATA}/${E}/${E}.sh ${E}.sh
+sbatch ${E}.sh
+
